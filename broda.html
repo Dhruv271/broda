@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRODA Fashion Mall | Premium Men's & Casual Wear</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark: #0f172a;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width .3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-extrabold tracking-tighter text-slate-900 uppercase">BRODA<span class="text-yellow-600">.</span></span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-widest">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#explore" class="nav-link">Explore Store</a>
+                <a href="#collections" class="nav-link">Categories</a>
+                <a href="#contact" class="nav-link">Visit Mall</a>
+            </div>
+
+            <div class="flex items-center space-x-5">
+                <a href="#explore" class="bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-yellow-600 transition-all duration-300">EXPLORE STORE</a>
+                <button class="md:hidden text-slate-900 text-2xl" id="menuBtn"><i class="fa-solid fa-bars-staggered"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-bold hidden">
+        <button id="closeBtn" class="absolute top-8 right-8 text-3xl">&times;</button>
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#explore" class="mobile-link">Explore Store</a>
+        <a href="#collections" class="mobile-link">Categories</a>
+        <a href="#contact" class="mobile-link">Visit Us</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="h-screen hero-gradient flex items-center justify-center text-center px-6">
+        <div class="max-w-5xl">
+            <span class="text-yellow-500 font-bold tracking-[0.4em] uppercase mb-4 block animate-pulse">Your Neighborhood's Fashion Landmark</span>
+            <h1 class="serif text-5xl md:text-8xl text-white mb-6 leading-tight">Everyday Premium <br/><span class="text-stroke">Clothing Essentials</span></h1>
+            <p class="text-slate-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+                Specializing in high-quality Shirts, T-Shirts, Denims, and Cotton Trousers. The only shop in the area dedicated to pure fabric excellence.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#explore" class="bg-yellow-600 text-white px-10 py-4 rounded-full font-bold hover:bg-yellow-500 transition-all shadow-lg">Explore Store Catalog</a>
+                <a href="#contact" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all">Find Our Shop</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Essential Stats -->
+    <section class="py-12 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <p class="text-3xl font-extrabold text-slate-900">100%</p>
+                <p class="text-slate-500 text-xs uppercase tracking-widest mt-1">Pure Cotton</p>
+            </div>
+            <div>
+                <p class="text-3xl font-extrabold text-slate-900">Premium</p>
+                <p class="text-slate-500 text-xs uppercase tracking-widest mt-1">Denim Range</p>
+            </div>
+            <div>
+                <p class="text-3xl font-extrabold text-slate-900">New</p>
+                <p class="text-slate-500 text-xs uppercase tracking-widest mt-1">Stock Every Week</p>
+            </div>
+            <div>
+                <p class="text-3xl font-extrabold text-slate-900">Custom</p>
+                <p class="text-slate-500 text-xs uppercase tracking-widest mt-1">Fitting Available</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Explore Store Dynamic Gallery -->
+    <section id="explore" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <span class="text-yellow-600 font-bold uppercase tracking-widest text-sm">Inside BRODA</span>
+                    <h2 class="serif text-4xl md:text-5xl text-slate-900 mt-2">Explore Our Latest Stock</h2>
+                </div>
+                <p class="text-slate-500 max-w-sm mt-4 md:mt-0">Real photos from our current collection. High-quality stitching and premium fabrics guaranteed.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Item 1 -->
+                <div class="group reveal card-hover">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80" alt="White Cotton Shirt" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold shadow-sm">PURE COTTON</div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-slate-900">Premium White Oxford</h4>
+                        <p class="text-slate-500 text-sm">Breathable cotton, slim-fit design.</p>
+                        <div class="flex justify-between items-center mt-3">
+                            <span class="text-yellow-600 font-extrabold">Best Seller</span>
+                            <button onclick="document.getElementById('contact').scrollIntoView()" class="text-xs font-bold uppercase tracking-tighter border-b border-slate-900 pb-1">Check Stock</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="group reveal card-hover" style="transition-delay: 100ms;">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80" alt="Rugged Jeans" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-slate-900 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">RUGGED DENIM</div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-slate-900">Classic Blue Selvedge</h4>
+                        <p class="text-slate-500 text-sm">Heavy-duty denim with stretch.</p>
+                        <div class="flex justify-between items-center mt-3">
+                            <span class="text-yellow-600 font-extrabold">All Sizes</span>
+                            <button onclick="document.getElementById('contact').scrollIntoView()" class="text-xs font-bold uppercase tracking-tighter border-b border-slate-900 pb-1">Check Stock</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="group reveal card-hover" style="transition-delay: 200ms;">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Oversized Tee" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">NEW TREND</div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-slate-900">Heavyweight Urban Tee</h4>
+                        <p class="text-slate-500 text-sm">240 GSM, Drop shoulder fit.</p>
+                        <div class="flex justify-between items-center mt-3">
+                            <span class="text-yellow-600 font-extrabold">5+ Colors</span>
+                            <button onclick="document.getElementById('contact').scrollIntoView()" class="text-xs font-bold uppercase tracking-tighter border-b border-slate-900 pb-1">Check Stock</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="group reveal card-hover" style="transition-delay: 300ms;">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1624371414361-e6e0ed262f62?auto=format&fit=crop&w=600&q=80" alt="Chinos" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold shadow-sm">COMFORT</div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-slate-900">Smart Cotton Chinos</h4>
+                        <p class="text-slate-500 text-sm">Tapered fit for all-day comfort.</p>
+                        <div class="flex justify-between items-center mt-3">
+                            <span class="text-yellow-600 font-extrabold">Premium Fit</span>
+                            <button onclick="document.getElementById('contact').scrollIntoView()" class="text-xs font-bold uppercase tracking-tighter border-b border-slate-900 pb-1">Check Stock</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section id="collections" class="py-24 px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="serif text-4xl md:text-5xl text-slate-900 mb-4">Our Core Categories</h2>
+                <div class="w-20 h-1 bg-yellow-600 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- T-Shirts -->
+                <div class="group card-hover bg-white rounded-2xl overflow-hidden shadow-sm reveal">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="T-Shirts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-xl font-bold">Premium T-Shirts</h3>
+                            <p class="text-sm opacity-80">Oversized, Slim Fit & Polos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shirts -->
+                <div class="group card-hover bg-white rounded-2xl overflow-hidden shadow-sm reveal" style="transition-delay: 100ms;">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Shirts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-xl font-bold">Casual & Formal Shirts</h3>
+                            <p class="text-sm opacity-80">Linen, Oxford & Prints</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jeans -->
+                <div class="group card-hover bg-white rounded-2xl overflow-hidden shadow-sm reveal" style="transition-delay: 200ms;">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80" alt="Jeans" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-xl font-bold">Raw & Stretch Denim</h3>
+                            <p class="text-sm opacity-80">Rugged quality for daily wear</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cotton Pants -->
+                <div class="group card-hover bg-white rounded-2xl overflow-hidden shadow-sm reveal">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1624371414361-e6e0ed262f62?auto=format&fit=crop&w=800&q=80" alt="Cotton Pants" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-xl font-bold">Cotton Trousers</h3>
+                            <p class="text-sm opacity-80">Comfortable Chinos & Slacks</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cargo/Casual -->
+                <div class="group card-hover bg-white rounded-2xl overflow-hidden shadow-sm reveal" style="transition-delay: 100ms;">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80" alt="Cargo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-xl font-bold">Cargos & Trackpants</h3>
+                            <p class="text-sm opacity-80">Street style essentials</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New In -->
+                <div class="group card-hover bg-slate-900 rounded-2xl flex items-center justify-center p-8 reveal" style="transition-delay: 200ms;">
+                    <div class="text-center">
+                        <p class="text-yellow-500 font-bold mb-2">JUST ARRIVED</p>
+                        <h3 class="text-white text-2xl font-bold mb-6">Summer 2024 <br/>Collection</h3>
+                        <a href="#contact" class="inline-block bg-white text-slate-900 px-6 py-2 rounded-full font-bold text-sm">Check In-Store</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fabric Focus -->
+    <section id="fabrics" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2 reveal">
+                <h2 class="serif text-4xl md:text-5xl text-slate-900 mb-6">It's All About The <span class="text-yellow-600">Fabric</span></h2>
+                <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                    At BRODA Fashion Mall, we don't just sell clothes; we sell comfort. We handpick our materials—from 100% breathable cotton to durable, high-GSM denim—ensuring that every shirt and pant you buy lasts longer and feels better.
+                </p>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="border-l-4 border-yellow-600 pl-4">
+                        <h4 class="font-bold text-slate-900 uppercase text-xs tracking-widest mb-1">Shirts</h4>
+                        <p class="text-slate-500 text-sm">Non-iron, easy-breath materials.</p>
+                    </div>
+                    <div class="border-l-4 border-yellow-600 pl-4">
+                        <h4 class="font-bold text-slate-900 uppercase text-xs tracking-widest mb-1">Jeans</h4>
+                        <p class="text-slate-500 text-sm">Reinforced stitching, premium wash.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 relative reveal" style="transition-delay: 200ms;">
+                <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=80" class="rounded-3xl shadow-2xl relative z-10" alt="Fabric Quality">
+                <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-yellow-600/10 rounded-full blur-2xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit & Contact -->
+    <section id="contact" class="py-24 px-6 bg-slate-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="reveal">
+                    <h2 class="serif text-4xl text-white mb-6">Come Visit BRODA</h2>
+                    <p class="text-slate-400 mb-10">We are located in the heart of the market. Come try on our latest collection of shirts and pants today.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-yellow-600/20 rounded-full flex items-center justify-center text-yellow-500">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <span class="text-white text-lg font-light">Main Market Square, Opp. Central Park, BRODA Mall</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-yellow-600/20 rounded-full flex items-center justify-center text-yellow-500">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <span class="text-white text-lg font-light">+1 (800) BRODA-FASHION</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 flex space-x-4">
+                        <a href="#" class="w-10 h-10 border border-slate-700 rounded-full flex items-center justify-center text-white hover:bg-yellow-600 hover:border-yellow-600 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 border border-slate-700 rounded-full flex items-center justify-center text-white hover:bg-yellow-600 hover:border-yellow-600 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 border border-slate-700 rounded-full flex items-center justify-center text-white hover:bg-yellow-600 hover:border-yellow-600 transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 md:p-12 rounded-3xl reveal" style="transition-delay: 200ms;">
+                    <h3 class="text-2xl font-bold mb-6 text-slate-900 text-center">Inquiry for Stock</h3>
+                    <form id="contactForm" class="space-y-4">
+                        <input type="text" placeholder="Your Name" class="w-full px-5 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-yellow-600/20">
+                        <input type="tel" placeholder="Mobile Number" class="w-full px-5 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-yellow-600/20">
+                        <select class="w-full px-5 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-yellow-600/20">
+                            <option>Interested in...</option>
+                            <option>T-Shirts</option>
+                            <option>Shirts</option>
+                            <option>Denims / Jeans</option>
+                            <option>Cotton Pants</option>
+                        </select>
+                        <textarea placeholder="Tell us what you're looking for..." rows="3" class="w-full px-5 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-yellow-600/20"></textarea>
+                        <button type="submit" class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-yellow-600 transition-all">Check Availability</button>
+                    </form>
+                    <div id="successMsg" class="hidden mt-4 p-4 bg-green-50 text-green-600 rounded-xl text-center font-bold">
+                        Request sent! We'll reply on WhatsApp shortly.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-12 px-6 border-t border-slate-800 text-center">
+        <p class="text-slate-500 text-sm">&copy; 2024 BRODA Fashion Mall. Pure Style, No Compromise.</p>
+    </footer>
+
+    <script>
+        // Scroll Reveal
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.onclick = () => mobileMenu.classList.remove('hidden');
+        closeBtn.onclick = () => mobileMenu.classList.add('hidden');
+        document.querySelectorAll('.mobile-link').forEach(l => l.onclick = () => mobileMenu.classList.add('hidden'));
+
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const successMsg = document.getElementById('successMsg');
+        contactForm.onsubmit = (e) => {
+            e.preventDefault();
+            contactForm.classList.add('hidden');
+            successMsg.classList.remove('hidden');
+        };
+    </script>
+</body>
+</html>
